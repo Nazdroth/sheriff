@@ -34,9 +34,9 @@ type GroupsExample struct {
 }
 ```
 
-### Multiple structs
+### Anonymous fields
 
-Multiple structs can be used to inherit the parent anonymous struct it's in. For example: If you need to split your structure where some fields are private and others are public you can just do it by adding the group to the parent.
+Tags added to a struct’s anonymous field propagates to the inner-fields if no other tags are specified.
 
 Example:
 

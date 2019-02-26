@@ -33,6 +33,26 @@ type GroupsExample struct {
     SomethingElse string `json:"something_else" groups:"api,personal"`
 }
 ```
+
+### Multiple structs
+
+Multiple structs can be used to inherit the parent anonymous struct it's in. For example: If you need to split your structure where some fields are private and others are public you can just do it by adding the group to the parent.
+
+Example:
+
+```go
+type UserInfo struct {
+    UserPrivateInfo `groups:"private"`
+    UserPublicInfo  `groups:"public"`
+}
+type UserPrivateInfo struct {
+    Age string
+}
+type UserPublicInfo struct {
+    ID    string
+    Email string`
+}
+```
  
 ### Since
 Since specifies the version since that field is available. It's inclusive and SemVer compatible using
